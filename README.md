@@ -30,7 +30,7 @@ Second you have to create `rat.json` files in your projects directory.
 Now you can look for your build status. If build is finished it will print it but if build is running or pending it will watch for change print if finished. It may be useful if you have long builds and want go watch some kittens online waiting for your CI build to end. Just push and we will notify you:
 
 ```
-git push && gitrat && beep(tput bel)
+gitrat && beep(tput bel)
 ```
 
 ## Licence 
