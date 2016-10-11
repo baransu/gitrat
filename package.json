@@ -1,6 +1,6 @@
 {
   "name": "gitrat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Check your last GitLab CI build or wait for build result.",
   "main": "index.js",
   "scripts": {
