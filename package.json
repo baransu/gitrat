@@ -9,7 +9,7 @@
     "ci",
     "builds"
   ],
-  "homepage": "https://github.com/baransu/gitrat",
+  "homepage": "https://github.com/Baransu/gitrat#readme",
   "main": "index.js",
   "preferGlobal": true,
   "scripts": {
