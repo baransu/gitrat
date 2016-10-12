@@ -29,7 +29,6 @@
   "author": "Tomasz Cichocinski <tomaszcichocinski@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "nconf": "^0.8.4",
     "request": "^2.75.0",
     "user-settings": "^0.1.5"
   },
