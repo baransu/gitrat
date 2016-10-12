@@ -1,6 +1,6 @@
 {
   "name": "gitrat",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Check your last GitLab CI build or wait for build result.",
   "keywords": [
     "git",
