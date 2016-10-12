@@ -9,7 +9,7 @@ npm install -g gitrat
 ```
 
 ## Usage
-First you have to set provide your GitLab private token. We use it for access to list of your projects and builds. `sudo` may be required.
+First you have to set provide your GitLab private token. We use it for access to list of your projects and builds.
 
 
 ```
@@ -20,14 +20,14 @@ Second you have to create `rat.json` files in your projects directory.
 
 ```json
 {
-    "projectName": "my-project"
+    "projectName": "my-project-name"
 }
 ```
 
 * `projectName` is name of your project on GitLab.
 * `OPTIONAL` | `projectId`, id of your project, if not specified it will be written by `gitrat` after first usage.
 
-Now you can look for your build status. If build is finished it will print it but if build is running or pending it will watch for change print if finished. It may be useful if you have long builds and want go watch some kittens online waiting for your CI build to end. Just push and we will notify you:
+Now you can look for your build status. If build is finished it will print it, but if build is running or pending it will watch for change and print result if finished. It may be useful if you have long builds and want go watch some kittens online waiting for your CI. Just push your changes and set `gitrat`. We'll notify you:
 
 ```
 gitrat && beep(tput bel)

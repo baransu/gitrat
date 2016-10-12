@@ -1,8 +1,17 @@
 {
   "name": "gitrat",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Check your last GitLab CI build or wait for build result.",
+  "keywords": [
+    "git",
+    "gitlab",
+    "gitlab-ci",
+    "ci",
+    "builds"
+  ],
+  "homepage": "https://github.com/baransu/gitrat",
   "main": "index.js",
+  "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -10,9 +19,20 @@
   "bin": {
     "gitrat": "./index.js"
   },
+  "bugs": {
+    "url": "https://github.com/Baransu/gitrat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/Baransu/gitrat.git"
+  },
   "author": "Tomasz Cichocinski <tomaszcichocinski@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.75.0"
+    "request": "^2.75.0",
+    "user-settings": "^0.1.5"
+  },
+  "config": {
+    "token": "empty"
   }
 }
