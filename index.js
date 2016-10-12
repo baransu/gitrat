@@ -5,28 +5,19 @@
 const path = require('path');
 const fs = require('fs');
 const request = require('request');
-
-// start looking for gitlab build
-// if end -> log -> break
-// if internet failed -> log -> break
-
-// projectName - gitlab project id
-// builds - how many last builds watch
+const settings = require('user-settings').file('.gitrat');
 
 var mode = "watch";
 const MODES = {
 
   token: function token() {
-    // TODO set token here
     let token = "";
     process.argv.forEach(function (val, index, array) {
       if(index == 3) token = val;
     });
 
-    fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify({token: token}) ,function(err) {
-      if(err) logAndExit(['I could not create config file with your token.', `${err}`]);
-      logAndExit(['I saved token in config file successfully.']);
-    });
+    if(token == "") logAndExit(['I cannot save empty token.']);
+    settings.set("GITRAT_TOKEN", token);
   },
 
   init: function init() {
@@ -88,7 +79,6 @@ process.argv.forEach(function (val, index, array) {
 if(MODES[mode] !== undefined) {
   MODES[mode]();
 } else {
-  // TODO add chalk for colors in messages
   console.log('I cannot find this command. Try one of listed bellow.\n');
   Object.keys(MODES).forEach(m => {
     console.log(`labrat ${m}`);
@@ -97,17 +87,13 @@ if(MODES[mode] !== undefined) {
 }
 
 function getToken() {
-  const file = fs.readFileSync(path.join(__dirname, 'config.json'), 'utf-8');
-  if(file === undefined) logAndExit(['I could not read your saved token.']);
-  const TOKEN = JSON.parse(file).token;
-  if (!TOKEN) {
-    // TODO add chalk for colors in messages
+  const TOKEN = settings.get("GITRAT_TOKEN");
+  if(TOKEN === undefined) {
     logAndExit([
       `I could not find your Gitlab token.`,
       `Set it by running this command:\n`,
       `gitrat token gitlab_token\n\n`
     ]);
-    process.exit(0);
   }
   return TOKEN;
 }
