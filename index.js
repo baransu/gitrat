@@ -18,6 +18,7 @@ const MODES = {
 
     if(token == "") logAndExit(['I cannot save empty token.']);
     settings.set("GITRAT_TOKEN", token);
+    logAndExit(['I successfully stored your token.']);
   },
 
   init: function init() {
@@ -141,7 +142,7 @@ function watchBuild(projectId, token) {
         logAndExit([`You don't have any builds within this project.`]);
       }
     } else {
-      logAndExit(['I could not get list of last builds.']);
+      logAndExit(['I could not get list of last builds. Maybe your token is not valid?']);
     }
   });
 }
